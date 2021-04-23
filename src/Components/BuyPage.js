@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import CartItem from "./CartItem";
 
 import { random, commerce } from "faker";
 import { Container, Col, Row } from "reactstrap";
-import CartItem from './CardItem';
+
 const apiKey = "563492ad6f91700001000001b0f46711d4c64497ac283305e7d70fd2";
 
 const url = "https://api.pexels.com/v1/search?query=laptop&per_page=6&page=1";
-const localurl = "https://jsonware.com/json/7f26bf2c0233a09ad8426b4e6ad9ccbd.json";
+const localurl = "https://api.myjson.com/bins/qp9uo";
 const BuyPage = ({ addInCart }) => {
   const [product, setProduct] = useState([]);
 
@@ -48,7 +49,7 @@ const BuyPage = ({ addInCart }) => {
       <Row>
         {product.map(product => (
           <Col md={4} key={product.id}>
-            <CartItem product={product} addInCart={addInCart}></CartItem>
+            <CartItem product={product} addInCart={addInCart} />
           </Col>
         ))}
       </Row>
